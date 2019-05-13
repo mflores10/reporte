@@ -1,0 +1,451 @@
+<form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+  <div class="row">
+    
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label>Numero de control</label>
+          <input type="text" formControlName="noControl" class="form-control" required>
+        </div>
+      </div>
+      
+      <!--Nombre ApP ApM -->
+      <div class="row">
+
+        <div class="col-md-4 mb-3">
+          <label>Nombre</label>
+          <input type="text" formControlName="nombre" class="form-control" required>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label>Primer apellido</label>
+          <input type="text" formControlName="apellidoP" class="form-control">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Segundo Apellido</label>
+            <input type="text" formControlName="apellidoM" class="form-control">
+          </div>
+      </div>
+      <!--Email Cel-->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Edad</label>
+          <input type="number" formControlName="edad" class="form-control"  min="0" data-bind="value:replyNumber" required>
+          <!-- Showing errors using getter method 
+          <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Please provide email</p>
+          <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>-->
+        </div>
+<!--
+        <div class="col-md-6 mb-3">
+          <label>Mobile number</label>
+          <input type="text" formControlName="mobileNumber" class="form-control" required>
+         
+          <p *ngIf="mobileNumber.touched && mobileNumber.invalid" class="error"><sup>*</sup>Please provide contact
+            number</p>
+          <p *ngIf="mobileNumber.errors?.pattern" class="error"><sup>*</sup>Use numbers only
+            number</p>
+        </div>  -->
+      </div>
+<!--
+      <div class="row">
+          <div class="col-md-2 mb-3">
+              <label>Edad</label>
+              <input type="email" formControlName="email" class="form-control" required>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Sexo</label>
+              <select name="" id="" class="browser-default custom-select">
+                <option>Femenino</option>
+                <option>Masculino</option>
+              </select>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label>CURP</label>
+              <input type="email" formControlName="email" class="form-control" required>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Fecha de Nacimiento</label>
+              <input type="date" formControlName="email" class="form-control" required>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Estado Civil</label>
+              <select name="" id="" class="browser-default custom-select">
+                  <option>Soltero(a)</option>
+                  <option>Casado(a)</option>
+                  <option>Viudo(a)</option>
+                  <option>Divorciado(a)</option>
+                </select>
+          </div>
+
+      </div>
+
+      <div class="row">
+          <div class="col-md-2 mb-3">
+            <label class="h4">Domicilio</label>
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-8 mb-3">
+              <label>Colonia/Localidad/Población:</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Numero</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Código postal</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+      </div>
+
+      <div class="row">
+          <div class="col-md-3 mb-3">
+              <label>Ciudad</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Municipio</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Entidad Federativa</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-3 mb-3">
+              <label>Pais</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <label class="h4">Academicos</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>Carrera</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-5 mb-3">
+              <label>Especialidad</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-3 mb-3">
+              <label>Año de ingreso (mes-año)</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3 mb-3">
+            <label class="h4">Contactos</label>
+          </div>
+       </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Email</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Facebook</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label>Número Celular</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label>Telefono de casa</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label>Telefono de casa adicional</label>
+              <input type="text" formControlName="firstName" class="form-control" required>
+          </div>
+
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 mb-3">
+            <label class="h1">II. PERTINENCIA Y DISPONIBILIDAD DE MEDIOS Y RECURSOS PARA EL APRENDIZAJE</label>
+            <p>Califique la calidad de la educación profesional proporcionada por el personal docente, así como el Plan de Estudios de la carrera que curso y las condiciones del plantel en cuanto a la infraestructura.</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label>1.- Calidad de los docentes:</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+      
+          <div class="col-md-4 mb-3">
+              <label>2.- Oportunidades de participar en proyectos de investigación y desarrollo:</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label>3.- Oportunidades de participar en proyectos de investigación y desarrollo:</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label>4.- Énfasis que se le presentaba a la investigación y desarrollo:</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+      
+          <div class="col-md-4 mb-3">
+              <label>5.- Satisfacción de las condiciones de estudio (infraestructura): </label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label>6.- Experiencia obtenida a través de la residencia profesional:</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-12 mb-3">
+            <label class="h1">III. UBICACIÓN LABORAL DE LOS EGRESADOS</label>
+            <p>Indique a cual de los siguientes puntos corresponde su situación actual.</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label>Actividad actual</label>
+          </div>
+      
+          <div class="col-md-4 mb-3">
+              <label>Si estudia, indicar si es</label>
+          </div>
+
+          <div class="col-md-4 mb-3">
+              <label>Especialidad</label>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label>Institución</label>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label class="h4">En caso de Trabajar:</label>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3 mb-3">
+              <label>Tiempo transcurrido para obtener el primer empleo</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Medio para obtenerlo</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Requisitos de contratación</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Condición de trabajo</label>
+              <select name="" id="" class="browser-default custom-select"></select>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9 mb-1">
+            <p>En qué proporción utiliza cada una de la habilidades del idioma en sus actividades laborales :</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 mb-3">
+            <label>Hablar(%)</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Leer(%)</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Escribir(%)</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Escuchar(%)</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+            <label>Ingreso (salario minimo diario)</label>
+            <select name="" id="" class="browser-default custom-select"></select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Nivel jerárquico</label>
+            <select name="" id="" class="browser-default custom-select"></select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Tiene relación con su área de formación</label>
+            <select name="" id="" class="browser-default custom-select"></select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label>Nombre de la Empresa</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Organismo</label>
+            <select name="" id="" class="browser-default custom-select"></select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Departamento</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            <label>Nombre y puesto del jefe</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Telefono de la empresa</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 mb-3">
+            <label>Página web de la empresa</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Giro o Actividad</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label>Sector Económico de la Organización</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Especifique</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Tamaño de la organización(Por Empleados)</label>
+            <select name="" id="" class="browser-default custom-select"></select>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label class="h4">Dirección de la Empresa u Organización:</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Colonia/Localidad/Poblacion</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>No.</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Código postal</label>
+            <input type="email" formControlName="email" class="form-control" required>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <label>Ciudad</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Municipio</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label>Entidad Federativa</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label>Pais</label>
+            <input type="text" formControlName="firstName" class="form-control" required>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 mb-3">
+          <label class="h1">IV. DESEMPEÑO PROFESIONAL DE LOS EGRESADOS</label>
+          <p>(Coherencia entre la formacion y el tipo de empleo)</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label>Actividad actual</label>
+        </div>
+    
+        <div class="col-md-4 mb-3">
+            <label>Si estudia, indicar si es</label>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Especialidad</label>
+        </div>
+    </div>
+  -->
+    
+      <!--Botones-->
+      <div class="form-group text-right">
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Student</button>
+      </div>
+
+    </div>
+  </div>
+</form>
