@@ -1,20 +1,7 @@
 
-
-/*import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class CrudService {
-
-  constructor() { }
-}
-*/
-
-
 import { Injectable } from '@angular/core';
 
-import { Student } from './student';
+import { Student } from '../services/student';
 
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
 
@@ -28,15 +15,20 @@ export class CrudService {
 
   constructor(
     private db: AngularFireDatabase
-    ) { }
+    ) { 
+
+      
+    }
 
     AddStudent(student: Student) {
+      this.studentsRef = this.db.list('student-list');
       this.studentsRef.push({
-      noControl: student.noControl,
-      nombre: student.nombre,
-      apellidoP: student.apellidoP,
-      apellidoM: student.apellidoM,
-      edad: student.edad
+        noControl: student.noControl,
+        nombre: student.nombre,
+        apellidoP: student.apellidoP,
+        apellidoM: student.apellidoM,
+        edad: student.edad,
+        us: student.user
       })
      }
 
@@ -46,6 +38,13 @@ export class CrudService {
       return this.studentRef;
     }
 
+
+    // Fetch Single Student Object
+    GetStudentM(id: string) {
+      //this.studentsRef = this.db.list('student-list');
+      this.studentsRef = this.db.list('student-list', ref => ref.orderByChild('uid').equalTo(id));
+      return this.studentsRef;
+    }
     // Fetch Students List
     GetStudentsList() {
       this.studentsRef = this.db.list('students-list');

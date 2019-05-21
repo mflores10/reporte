@@ -17,13 +17,24 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AddPollComponent } from './components/add-poll/add-poll.component';
 
 // Firebase services + enviorment module
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+;
 import { environment } from '../environments/environment';
 
+// Toaster for Alert Messages
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+// NGX Pagination
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 // Auth service
-import { AuthService } from "./shared/services/auth.service";
+//import { AuthService } from "./shared/services/auth.service";
+//import { CrudService } from "./shared/services/crud.service";
 
 
 @NgModule({
@@ -42,9 +53,21 @@ import { AuthService } from "./shared/services/auth.service";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,    // Required animations module for Toastr
+    ToastrModule.forRoot({      // Register NgxToast NPM module
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,      
+    }),
+    NgxPaginationModule  // NGX pagination module
+
   ],
-  providers: [AuthService],
+  providers: [
+    //AuthService, 
+    //CrudService
+  ],
   bootstrap: [AppComponent]
 })
 
