@@ -1,7 +1,9 @@
-{{items}}
 <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
+
+  <div class="pt-3 pb-2 mb-3 border-botton">
+    <h1>I. PERFIL DEL EGRESADO</h1>
+</div>
   <div class="row">
-    <!--<p>{{user.email}}</p>-->
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="row">
         <div class="col-md-4 mb-3">
@@ -10,35 +12,413 @@
         </div>
       </div>
       
-      <!--Nombre ApP ApM -->
       <div class="row">
         
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label>Nombre</label>
-          <input type="text" formControlName="nombre" class="form-control" required>
+          <input type="text" formControlName="nombre" class="form-control">
         </div>
 
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label>Primer apellido</label>
           <input type="text" formControlName="apellidoP" class="form-control">
         </div>
 
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <label>Segundo Apellido</label>
             <input type="text" formControlName="apellidoM" class="form-control">
+        </div>
+        
+    
+        <div class="col-md-3 mb-3">
+          <label>Edad</label>
+          <input type="number" formControlName="edad" class="form-control"  min="0" data-bind="value:replyNumber" required>
+        </div>
+      
+      </div>
+
+  
+      <div class="row">
+          <div class="col-md-4 mb-3">
+              <label>Fecha de Nacimiento</label>
+              <input type="date" formControlName="fechaNacimiento" class="form-control">
+            </div>
+  
+          <div class="col-md-4 mb-3">
+            <label>CURP</label>
+            <input type="text" formControlName="curp" class="form-control">
+          </div>
+  
+          <div class="col-md-2 mb-3">
+              <label>Sexo</label>
+              <select formControlName="sexo" class="form-control1">
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+              </select>
+          </div>
+
+          <div class="col-md-2 mb-3">
+              <label>Estado Civil</label>
+              <select formControlName="estadoCivil" class="form-control1">
+                <option value="Soltero">Soltero</option>
+                <option value="Casado">Casado</option>
+              </select>
+          </div>
+
+      </div>
+
+        <div class="row">        
+            <div class="col-md-3 mb-3">
+              <label>Calle</label>
+              <input type="text" formControlName="calle" class="form-control" required>
+            </div>
+            <div class="col-md-1 mb-1">
+              <label>Número</label>
+              <input type="text" formControlName="numero" class="form-control">
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <label>Colonia</label>
+                <input type="text" formControlName="colonia" class="form-control">
+            </div>
+  
+            <div class="col-md-2 mb-2">
+              <label>Código Postal</label>
+              <input type="text" formControlName="cp" class="form-control">
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label>Ciudad</label>
+              <input type="text" formControlName="ciudad" class="form-control">
+            </div>
+          </div>
+
+          <div class="row">
+          
+              <div class="col-md-4 mb-4">
+                <label>Municipio</label>
+                <input type="text" formControlName="municipio" class="form-control" required>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <label>Estado</label>
+                  <input type="text" formControlName="estado" class="form-control" required>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <label>Pais</label>
+                  <input type="text" formControlName="pais" class="form-control" required>
+              </div>
+
+          </div>
+
+          <div class="row">        
+            <div class="col-md-4 mb-4">
+              <label>Teléfono/Celular</label>
+              <input type="input" formControlName="celular" class="form-control" >
+            </div>
+            <div class="col-md-4 mb-4">
+              <label>Teléfono casa materna</label>
+              <input type="input" formControlName="telefonoCasa" class="form-control" >
+            </div>
+            <div class="col-md-4 mb-4">
+              <label>email</label>
+              <input type="email" formControlName="email" class="form-control" >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Carrera</label>
+                <select formControlName="carrera" class="form-control1">
+                  <option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
+                  <option value="Ingeniería en Industrias Alimentarias">Ingeniería en Industrias Alimentarias</option>
+                  <option value="Ingeniería Mécanica">Ingeniería Mécanica</option>
+                  <option value="Ingeniería en Gestión Empresarial">Ingeniería en Gestión Empresarial</option>
+                  <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label>Especialidad</label>
+              <input type="text" formControlName="especialidad" class="form-control" >
+            </div>
+
+            <div class="col-md-2 mb-2">
+                <label>Titulado</label>
+                <select formControlName="titulado" class="form-control1">
+                  <option value="si">Si</option>
+                  <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label>Egreso(mes-año)</label>
+              <input type="text" formControlName="mes_año_Egreso" class="form-control" >
+            </div>
+
+          </div>
+
+        <div class="pt-3 pb-2 mb-3 border-botton">
+          <h1>II. PERTINENCIA Y DISPONIBILIDAD DE MEDIOS Y RECURSOS PARA EL APRENDIZAJE</h1>
+          <P class="custum-text">Califique la calidad de la educación profesional proporcionada por el personal docente, así como el Plan de Estudios de la carrera que curso y las condiciones del plantel en cuanto a la infraestructura.</P>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>1.- Calidad de los docentes</label>
+          <select formControlName="calidadDocentes" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>2.- Plan de Estudios</label>
+          <select formControlName="planEstudios" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>3.- Oportunidades de participar en proyectos de investigación y desarrollo</label>
+          <select formControlName="oportunidadesInvestigacion" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>4.- Énfasis que se le presentaba a la investigación y desarrollo</label>
+          <select formControlName="enfasisInvestigacion" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>5.- Satisfacción de las condiciones de estudio (infraestructura)</label>
+          <select formControlName="infraestructura" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>6.- Experiencia obtenida a través de la residencia profesional</label>
+          <select formControlName="residenciaProfesional" class="form-control1">
+            <option value="Muy buena">Muy buena</option>
+            <option value="Buena">Buena</option>
+            <option value="Regular">regular</option>
+            <option value="Mala">Mala</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pt-3 pb-2 mb-3 border-botton">
+          <h1>III. UBICACIÓN LABORAL DE LOS EGRESADOS</h1>
+          <P class="custum-text">Indique a cual de los siguientes puntos corresponde su situación actual.</P>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 mb-4">
+            <label>Actividad a la que se dedica actualmente</label>
+            <select formControlName="actividadActual" class="form-control1">
+              <option value="Trabaja">Trabaja</option>
+              <option value="Estudia">Estudia</option>
+              <option value="Estudia y trabaja">Estudia y trabaja</option>
+              <option value="No Estudia ni trabaja">Estudia ni trabaja</option>
+            </select>
+          </div>
+          <div class="col-md-2 mb-3">
+            <label>Si estudia, indicar si es:</label>
+            <select formControlName="estudia" class="form-control1">
+              <option value="Maestria">Maestria</option>
+              <option value="Doctorado">Doctorado</option>
+              <option value="Idioma">Idioma</option>
+              <option value="Curso">Curso</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Especialidad:</label>
+              <input type="text" formControlName="especialidad3" class="form-control" >
+          </div>
+          <div class="col-md-3 mb-3">
+              <label>Institución:</label>
+              <input type="text" formControlName="institucion" class="form-control" >
           </div>
       </div>
       <div class="row">
-        <div class="col-md-6 mb-3">
-          <label>Edad</label>
-          <input type="number" formControlName="edad" class="form-control"  min="0" data-bind="value:replyNumber" required>
-          <!-- Showing errors using getter method 
-          <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Please provide email</p>
-          <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>-->
+        <div class="col-md-6 mb-6">
+          <label>En caso de trabajar: Tiempo transcurrido para encontrar el primer empleo</label>
+          <select formControlName="tiempoPrimerEmpleo" class="form-control1">
+            <option value="Antes de egresar">Antes de egresar</option>
+            <option value="Menos de 6 meses">Menos de 6 meses</option>
+            <option value="Entre 6 meses y un año">Entre 6 meses y un año</option>
+            <option value="Más de un año">Más de un año</option>
+          </select>
         </div>
       </div>
-    
-      <!--Botones-->
+      <div class="row">
+        <div class="col-md-6 mb-6">
+          <label>Medio para obtener empleo</label>
+          <select formControlName="medioObtenerEmpleo" class="form-control1">
+            <option value="Bolsa de trabajo en el plantel">Bolsa de trabajo en el plantel</option>
+            <option value="Contactos personales">Contactos personales</option>
+            <option value="Residencia profesional">Residencia profesional</option>
+            <option value="Medios masivos de compunicación">Medios masivos de compunicación</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-12">
+          <label>Requisitos de contratación</label>
+          <select formControlName="requisitosContratacion" class="form-control1">
+            <option value="Conpetencias laborales">Conpetencias laborales</option>
+            <option value="Titulo profesional">Titulo profesional</option>
+            <option value="Examen de selección">Examen de selección</option>
+            <option value="Idioma extranjero">Idioma extranjero</option>
+            <option value="Actitudes y habilidades socio-comunitivas (principios y valores)">Actitudes y habilidades socio-comunitivas (principios y valores)</option>
+            <option value="Ninguna">Ninguna</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <label>Idioma extranjero que utiliza</label>
+          <input type="text" formControlName="idiomaExtranjero" class="form-control" >
+        </div>
+
+        <div class="col-md-2 mb-2">
+          <label>Hablar</label>
+          <input type="number" min="0" max="100" formControlName="hablar" class="form-control" >
+        </div>
+        <div class="col-md-2 mb-2">
+          <label>Escribir</label>
+          <input type="number" min="0" max="100" formControlName="escribir" class="form-control" >
+        </div>
+        <div class="col-md-2 mb-2">
+          <label>Leer</label>
+          <input type="number" min="0" max="100" formControlName="leer" class="form-control" >
+        </div>
+        <div class="col-md-2 mb-2">
+          <label>Escuchar</label>
+          <input type="number" min="0" max="100" formControlName="escuchar" class="form-control" >
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-3 mb-3">
+          <label>Antigüedad en el empleo</label>
+          <select formControlName="antigüedadEmpleo" class="form-control1">
+            <option value="Menos de un año">Menos de un año</option>
+            <option value="Un año">Un año</option>
+            <option value="Dos años">Dos años</option>
+            <option value="Tres años">Tres años</option>
+            <option value="Más de tres años">Más de tres años</option>
+          </select>
+        </div>
+        
+        <div class="col-md-3 mb-3">
+          <label>Año de ingreso</label>
+          <input type="text" formControlName="añoIngreso" class="form-control" >
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label>Ingreso (salario mínimo diario) </label>
+          <select formControlName="ingresoSalarioMinimo" class="form-control1">
+            <option value="Menos de cinco">Menos de cinco</option>
+            <option value="Entre cinco y siete">Entre cinco y siete</option>
+            <option value="Entre 8 y 10">Entre 8 y 10</option>
+            <option value="Más de 10">Más de 10</option>
+          </select>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          
+          <label>Nivel jerarquico </label>
+          <select formControlName="nivelJerarquico" class="form-control1">
+            <option value="Tecnico">Tecnico</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Jefe de área">Jefe de área</option>
+            <option value="Funcionario">Funcionario</option>
+            <option value="Directivo">Directivo</option>
+            <option value="Empresario">Empresario</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-2 mb-2">
+          <label>Condición de trabajo</label>
+          <select formControlName="condicionTrabajo" class="form-control1">
+            <option value="Base">Base</option>
+            <option value="Eventual">Eventual</option>
+            <option value="Contrato">Contrato</option>
+          </select>
+        </div>
+
+        <div class="col-md-2 mb-2">
+            <label>Relación de trabajo</label>
+            <select formControlName="relacionTrabajo" class="form-control1">
+              <option value="0%">0%</option>
+              <option value="20%">20%</option>
+              <option value="40%">40%</option>
+              <option value="60%">60%</option>
+              <option value="80%">80%</option>
+              <option value="100%">100%</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 mb-2">
+            <label>Datos de la empresa</label>
+            <select formControlName="giroEmpresa" class="form-control1">
+              <option value="Público">Público</option>
+              <option value="Privado">Privado</option>
+              <option value="Social">Social</option>
+            </select>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <label>Actividad principal de la empresa u organismo</label>
+          <input type="text" formControlName="actividadEmpresa" class="form-control" >
+        </div>
+
+      </div>
+<!--
+      <div class="row">
+        <div class="col-md-2 mb-2">
+          <label>Condición de trabajo</label>
+          <input type="text" formControlName="actividadEmpresa" class="form-control">
+        </div>
+
+        
+      </div>-->
+
+
       <div class="form-group text-right">
         <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
         <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Student</button>

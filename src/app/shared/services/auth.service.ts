@@ -43,8 +43,8 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-          
+          this.router.navigate(['dashboard/'+result.user.uid]);
+
         });
        // this.SetUserData(result.user);
       }).catch((error) => {
@@ -60,7 +60,6 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         //this.SetUserData(result.user);
-        
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -72,6 +71,11 @@ export class AuthService {
     .then(() => {
       this.router.navigate(['verify-email-address']);
     })
+  }
+
+
+  viewPoll() {
+    this.router.navigate(['view-poll']);
   }
 
   // Reset Forggot password
@@ -101,9 +105,8 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-          // console.log(result.user);
-          this.updateUserData(result.user);
+          this.router.navigate(['dashboard/'+result.user.uid]);
+          //this.updateUserData(result.user);
         })
       // this.SetUserData(result.user);
     }).catch((error) => {
@@ -111,25 +114,6 @@ export class AuthService {
     })
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  /*
-  SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      role: user.role='admin'
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
-  }
-*/
   // Sign out 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
@@ -145,21 +129,9 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      role: user.role='admin'
+      emailVerified: user.emailVerified
     })
-    /*const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const data: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      role: user.role='admin'
-    }
-    return userRef.set(data, {
-      merge: true
-    })*/
+
   }
 
 

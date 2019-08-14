@@ -1,66 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-
-
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'; // Reactive form services
-import { ToastrService } from 'ngx-toastr'; // Alert message using NGX toastr
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CrudService } from '../../shared/services/crud.service';
-
-
-import { AuthService } from "../../shared/services/auth.service";
-import { ConditionalExpr } from '@angular/compiler';
-import { AngularFireList } from '@angular/fire/database';
-//import { CrudService } from "../../shared/services/crud.service";
-
-
 import { ActivatedRoute, Router } from "@angular/router"; // ActivatedRoue is used to get the current associated components information.
 import { Location } from '@angular/common';  // Location service is used to go back to previous component
+import { ToastrService } from 'ngx-toastr';
+
+//import { Student } from '../../shared/services/student'; 
+
 
 @Component({
-  selector: 'app-add-poll',
-  templateUrl: './add-poll.component.html',
-  styleUrls: ['./add-poll.component.css']
+  selector: 'app-edit-poll',
+  templateUrl: './edit-poll.component.html',
+  styleUrls: ['./edit-poll.component.css']
 })
-export class AddPollComponent implements OnInit {
-
-  public studentForm: FormGroup;  // Define FormGroup to student's form
-  public items: AngularFireList<any>;
-
+export class EditPollComponent implements OnInit {
+  studentForm: FormGroup;  
+  //Student: Student[]; 
+  itemKey: string;
   constructor(
-    public crudApi: CrudService,  // CRUD API services
-    public fb: FormBuilder,       // Form Builder service for Reactive forms
-    public toastr: ToastrService,  // Toastr service for alert message
-
-    
+    private crudApi: CrudService,       // Inject CRUD API in constructor
+    private fb: FormBuilder,            // Inject Form Builder service for Reactive forms
     private location: Location,         // Location service to go back to previous component
     private actRoute: ActivatedRoute,   // Activated route to get the current component's inforamation
-    private router: Router,   
-
-    public authService: AuthService,
-    public crudService: CrudService
-    ) {
-      //const id = this.actRoute.snapshot.paramMap.get('id'); 
-    //const id = this.authService.userData.uid;
-    //this.items = this.crudApi.GetStudentM(id)
-   }
+    private router: Router,             // Router service to navigate to specific component
+    private toastr: ToastrService       // Toastr service for alert message
+    
+  ) { }
 
   ngOnInit() {
-    //console.log('id en add '+id);
+    this.studenForm();   // Call updateStudentData() as soon as the component is ready 
+    const id = this.actRoute.snapshot.paramMap.get('id');  // Getting current component's id or information using ActivatedRoute service
+    console.log('id del usuario en editPol', id);
 
-    //this.crudApi.GetStudentsList();  // Call GetStudentsList() before main form is being called
-    this.studenForm();              // Call student form when component is ready
-    //this.crudApi.GetStudent(this.authService.userData.uid);
-    //const id = this.authService.userData.uid;
-    //console.log(id);
-    //this.items = this.crudApi.GetStudentM(id)
     //const id = this.actRoute.snapshot.paramMap.get('id'); 
-    //this.crudService.ValidateUser(id);
-
-    //console.log();
+    //console.log('id desde dashboard ', id);
+    let s = this.crudApi.ValidateUser(id);
+    //console.log('valor de s', s);
+    s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
+      //this.Student = [];
+      //console.log('valor de data ',data);
+      data.forEach(item => {
+        //console.log('id del Poll', item.key);
+        this.itemKey=item.key
+      })
+      //console.log('valor de itemkey', this.itemKey);
+      this.crudApi.GetStudent(this.itemKey).valueChanges().subscribe(data => {
+        //console.log(this.studentForm.setValue(data.actividadActual));
+        //console.log('valor de la data ', JSON.parse(data));
+        this.studentForm.setValue(data)
+      })
+    })
 
   }
-
-  // Reactive student form
   studenForm() {
     const id = this.actRoute.snapshot.paramMap.get('id'); 
 
@@ -131,6 +122,11 @@ export class AddPollComponent implements OnInit {
     //console.log(this.studenForm);
   }
 
+  get estudia(){
+    console.log('entro getestudia')
+    return this.studentForm.get('estudia');
+  }
+/*
 
   get nombre(){
     return this.studentForm.get('nombre');
@@ -171,6 +167,8 @@ export class AddPollComponent implements OnInit {
     return this.studentForm.get('estadoCivil');
   }
 
+  
+
   get user(){
     return this.actRoute.snapshot.paramMap.get('id');//this.authService.userData;
   }
@@ -208,7 +206,7 @@ export class AddPollComponent implements OnInit {
   get institucion(){
     return this.studentForm.get('institucion');
   }
-
+*/
   // Reset student form's values
   ResetForm() {
     this.studentForm.reset();
@@ -216,9 +214,10 @@ export class AddPollComponent implements OnInit {
   
   submitStudentData() {
     // console.log(this.studentForm.value);
-    this.crudApi.AddStudent(this.studentForm.value); // Submit student data using CRUD API
+    this.crudApi.UpdateStudent(this.studentForm.value); // Submit student data using CRUD API
     //this.toastr.success(this.studentForm.controls['firstName'].value + ' successfully added!'); // Show success message when data is successfully submited
     //this.ResetForm();  // Reset form when clicked on reset button
     };
 
 }
+

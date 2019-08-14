@@ -30,6 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 // NGX Pagination
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditPollComponent } from './components/edit-poll/edit-poll.component';
+import { ViewPollComponent } from './components/view-poll/view-poll.component';
 
 
 // Auth service
@@ -45,7 +47,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DashboardComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AddPollComponent
+    AddPollComponent,
+    EditPollComponent,
+    ViewPollComponent
   ],
   imports: [
     BrowserModule,

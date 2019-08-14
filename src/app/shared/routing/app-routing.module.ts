@@ -8,7 +8,8 @@ import { DashboardComponent } from '../../components/dashboard/dashboard.compone
 import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from '../../components/verify-email/verify-email.component';
 import { AddPollComponent } from '../../components/add-poll/add-poll.component';
-
+import { EditPollComponent } from '../../components/edit-poll/edit-poll.component';
+import { ViewPollComponent } from '../../components/view-poll/view-poll.component'
 // Import canActivate guard services
 import { AuthGuard } from "../../shared/guard/auth.guard";
 import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.guard";
@@ -21,7 +22,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
-  { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]  },
+  { path: 'dashboard/:id', component: DashboardComponent,canActivate: [AuthGuard]  },
+  { path: 'add-poll', component: AddPollComponent,canActivate: [AuthGuard]  },
+  { path: 'edit-poll/:id', component: EditPollComponent,canActivate: [AuthGuard]  },
+  { path: 'view-poll', component: ViewPollComponent,canActivate: [AuthGuard]  },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent }
 /*

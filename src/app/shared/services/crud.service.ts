@@ -3,7 +3,12 @@ import { Injectable } from '@angular/core';
 
 import { Student } from '../services/student';
 
+
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
+//import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+//import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { strictEqual } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +19,16 @@ export class CrudService {
   studentRef: AngularFireObject<any>;   // Reference to Student object, its an Observable too
 
   constructor(
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private actRoute: ActivatedRoute,
+    private router: Router
     ) { 
 
-      
+    }
+
+    ngOnInit(){
+      const id = this.actRoute.snapshot.paramMap.get('id');
+      console.log('Valor de id ', id);
     }
 
     AddStudent(student: Student) {
@@ -28,13 +39,65 @@ export class CrudService {
         apellidoP: student.apellidoP,
         apellidoM: student.apellidoM,
         edad: student.edad,
-        us: student.user
+        user: student.user,
+        fechaNacimiento: student.fechaNacimiento,
+        curp: student.curp,
+        sexo: student.sexo,
+        estadoCivil: student.estadoCivil,
+        calle: student.calle,
+        numero: student.numero,
+        colonia: student.colonia,
+        cp: student.cp,
+        ciudad: student.ciudad,
+        municipio: student.municipio,
+        estado: student.estado,
+        pais: student.pais,
+        celular: student.celular,
+        telefonoCasa: student.telefonoCasa,
+        email: student.email,
+
+        carrera: student.carrera,
+        especialidad: student.especialidad,
+        titulado: student.titulado,
+        mes_año_Egreso: student.mes_año_Egreso,
+        
+
+        calidadDocentes: student.calidadDocentes,
+        planEstudios: student.planEstudios,
+        oportunidadesInvestigacion: student.oportunidadesInvestigacion,
+        enfasisInvestigacion: student.enfasisInvestigacion ,
+        infraestructura: student.infraestructura,
+        residenciaProfesional: student.residenciaProfesional,
+
+        actividadActual: student.actividadActual,
+        estudia: student.estudia,
+        especialidad3: student.especialidad3,
+        institucion: student.institucion,
+        tiempoPrimerEmpleo: student.tiempoPrimerEmpleo,
+        medioObtenerEmpleo: student.medioObtenerEmpleo,
+        requisitosContratacion: student.requisitosContratacion,
+        idiomaExtranjero: student.idiomaExtranjero,
+        hablar: student.hablar,
+        escribir: student.escribir,
+        leer: student.leer,
+        escuchar: student.escuchar,
+        antigüedadEmpleo: student.antigüedadEmpleo,
+        añoIngreso: student.añoIngreso,
+        ingresoSalarioMinimo: student.ingresoSalarioMinimo,
+        nivelJerarquico: student.nivelJerarquico,
+        condicionTrabajo: student.condicionTrabajo,
+        relacionTrabajo: student.relacionTrabajo,
+        giroEmpresa: student.giroEmpresa,
+        actividadEmpresa: student.actividadEmpresa,
+
       })
      }
 
      // Fetch Single Student Object
     GetStudent(id: string) {
-      this.studentRef = this.db.object('students-list/' + id);
+      this.studentRef = this.db.object('student-list/' + id);
+      console.log('valor de id', 'student-list/'+id);
+      //console.log(this.studentRef.valueChanges());
       return this.studentRef;
     }
 
@@ -47,7 +110,7 @@ export class CrudService {
     }
     // Fetch Students List
     GetStudentsList() {
-      this.studentsRef = this.db.list('students-list');
+      this.studentsRef = this.db.list('student-list');
       return this.studentsRef;
     }  
 
@@ -60,7 +123,57 @@ export class CrudService {
       nombre: student.nombre,
       apellidoP: student.apellidoP,
       apellidoM: student.apellidoM,
-      edad: student.edad
+      edad: student.edad,
+      user: student.user,
+      fechaNacimiento: student.fechaNacimiento,
+      curp: student.curp,
+      sexo: student.sexo,
+      estadoCivil: student.estadoCivil,
+      calle: student.calle,
+      numero: student.numero,
+      colonia: student.colonia,
+      cp: student.cp,
+      ciudad: student.ciudad,
+      municipio: student.municipio,
+      estado: student.estado,
+      pais: student.pais,
+      celular: student.celular,
+      telefonoCasa: student.telefonoCasa,
+      email: student.email,
+
+      carrera: student.carrera,
+      especialidad: student.especialidad,
+      titulado: student.titulado,
+      mes_año_Egreso: student.mes_año_Egreso,
+      
+
+      calidadDocentes: student.calidadDocentes,
+      planEstudios: student.planEstudios,
+      oportunidadesInvestigacion: student.oportunidadesInvestigacion,
+      enfasisInvestigacion: student.enfasisInvestigacion ,
+      infraestructura: student.infraestructura,
+      residenciaProfesional: student.residenciaProfesional,
+
+      actividadActual: student.actividadActual,
+      estudia: student.estudia,
+      especialidad3: student.especialidad3,
+      institucion: student.institucion,
+      tiempoPrimerEmpleo: student.tiempoPrimerEmpleo,
+      medioObtenerEmpleo: student.medioObtenerEmpleo,
+      requisitosContratacion: student.requisitosContratacion,
+      idiomaExtranjero: student.idiomaExtranjero,
+      hablar: student.hablar,
+      escribir: student.escribir,
+      leer: student.leer,
+      escuchar: student.escuchar,
+      antigüedadEmpleo: student.antigüedadEmpleo,
+      añoIngreso: student.añoIngreso,
+      ingresoSalarioMinimo: student.ingresoSalarioMinimo,
+      nivelJerarquico: student.nivelJerarquico,
+      condicionTrabajo: student.condicionTrabajo,
+      relacionTrabajo: student.relacionTrabajo,
+      giroEmpresa: student.giroEmpresa,
+      actividadEmpresa: student.actividadEmpresa,
     })
   }  
 
@@ -68,6 +181,23 @@ export class CrudService {
   DeleteStudent(id: string) { 
     this.studentRef = this.db.object('students-list/'+id);
     this.studentRef.remove();
+  }
+
+  //Validar
+  ValidateUser(id: string){
+    this.studentsRef = this.db.list('student-list/', ref => ref.orderByChild('user').equalTo(id));
+    //this.studentRef=this.db.list('student-list', ref => ref.)
+    console.log('usuario encontrado ', id, ' ');
+    //console.log('entro xD');
+    return this.studentsRef;
+  }
+
+  getPoll(id: string){
+    this.studentsRef = this.db.list('student-list', ref => ref.orderByChild('user').equalTo(id));
+    //this.studentRef=this.db.list('student-list', ref => ref.)
+    console.log('usuario encontrado ', id, ' ');
+    //console.log('entro xD');
+    return this.studentsRef;
   }
 
 }
