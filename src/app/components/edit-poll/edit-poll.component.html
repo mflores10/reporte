@@ -1,14 +1,18 @@
-<p>
-  edit-poll works!
-</p>
-
 <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
-
+  <P>EDIT</P>
     <div class="pt-3 pb-2 mb-3 border-botton">
       <h1>I. PERFIL DEL EGRESADO</h1>
   </div>
-    <div class="row">
+    <div class="row"> 
       <div class="col-lg-12 col-md-12 col-sm-12">
+        
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>user</label>
+            <input type="text" formControlName="user" class="form-control" >
+          </div>
+        </div>
+        
         <div class="row">
           <div class="col-md-4 mb-3">
             <label>Numero de control</label>
@@ -164,7 +168,7 @@
             <h1>II. PERTINENCIA Y DISPONIBILIDAD DE MEDIOS Y RECURSOS PARA EL APRENDIZAJE</h1>
             <P class="custum-text">Califique la calidad de la educación profesional proporcionada por el personal docente, así como el Plan de Estudios de la carrera que curso y las condiciones del plantel en cuanto a la infraestructura.</P>
         </div>
-  
+  <!--
         <div class="row">
           <div class="col-md-12 mb-12">
             <label>1.- Calidad de los docentes</label>
@@ -414,18 +418,388 @@
         </div>
   
         <div class="row">
-          <div class="col-md-2 mb-2">
-            <label>Condición de trabajo</label>
-            <input type="text" formControlName="actividadEmpresa" class="form-control">
-          </div>
-  
-          
+          <div class="col-md-12 mb-12">
+            <label>Razon social</label>
+            <input type="text" formControlName="razonSocial" class="form-control">
+          </div>  
         </div>
+
+        <div class="row">
+            <div class="col-md-12 mb-12">
+              <label>Razon social</label>
+              <input type="text" formControlName="razonSocial" class="form-control">
+            </div>  
+          </div>
+
+          <div class="row">        
+              <div class="col-md-3 mb-3">
+                <label>Calle</label>
+                <input type="text" formControlName="calleRazonSocial" class="form-control" required>
+              </div>
+              <div class="col-md-1 mb-1">
+                <label>Número</label>
+                <input type="text" formControlName="numeroRazonSocial" class="form-control">
+              </div>
   
+              <div class="col-md-3 mb-4">
+                  <label>Colonia</label>
+                  <input type="text" formControlName="coloniaRazonSocial" class="form-control">
+              </div>
+    
+              <div class="col-md-2 mb-2">
+                <label>Código Postal</label>
+                <input type="text" formControlName="cpRazonSocial" class="form-control">
+              </div>
+  
+              <div class="col-md-3 mb-3">
+                <label>Ciudad</label>
+                <input type="text" formControlName="ciudadRazonSocial" class="form-control">
+              </div>
+            </div>
+  
+            <div class="row">
+            
+                <div class="col-md-6 mb-6">
+                  <label>Municipio</label>
+                  <input type="text" formControlName="municipioRazonSocial" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-6">
+                    <label>Estado</label>
+                    <input type="text" formControlName="estadoRazonSocial" class="form-control" required>
+                </div>
+  
+            </div>
+
+            <div class="row">
+            
+                <div class="col-md-4 mb-4">
+                  <label>Teléfono</label>
+                  <input type="text" formControlName="telRazonSocial" class="form-control" required>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label>Fax</label>
+                    <input type="text" formControlName="faxRazonSocial" class="form-control" required>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label>email</label>
+                    <input type="text" formControlName="emailRazonSocial" class="form-control" required>
+                </div>
+  
+            </div>
+
+            <div class="row">
+            
+                <div class="col-md-4 mb-4">
+                  <label>Página web</label>
+                  <input type="text" formControlName="paginaRazonSocial" class="form-control" required>
+                </div>
+                <div class="col-md-8 mb-8">
+                    <label>Nombre y puesto del Jefe inmediato</label>
+                    <input type="text" formControlName="nombreJefeRazonSocial" class="form-control" required>
+                </div>
+
+            </div>
+
+            <div class="row">
+            
+                <div class="col-md-3 mb-3">
+                  <label>Sector primario</label>
+                  <select formControlName="sectorPrimario" class="form-control1">
+                      <option value="Agroindustria">Agroindustria</option>
+                      <option value="Pesquero">Pesquero</option>
+                      <option value="Minero">Minero</option>
+                      <option value="Otros">Otros</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Sector secundario</label>
+                    <select formControlName="sectorSecundario" class="form-control1">
+                      <option value="Industria">Industria</option>
+                      <option value="Construcción">Construcción</option>
+                      <option value="Petrolero">Petrolero</option>
+                      <option value="Otros">Otros</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Sector terciario</label>
+                    <select formControlName="sectorTerciario" class="form-control1">
+                      <option value="Educativo">Educativo</option>
+                      <option value="Turismo">Turismo</option>
+                      <option value="Servicios Financieros">Servicios Financieros</option>
+                      <option value="Otros">Otros</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label>Tamaño de la empresa</label>
+                    <select formControlName="tamañoEmpresa" class="form-control1">
+                      <option value="Microempresa (1-30)">Microempresa (1-30)</option>
+                      <option value="Pequeña (31-100)">Pequeña (31-100)</option>
+                      <option value="Mediana (101-500)">Mediana (101-500)</option>
+                      <option value="Grande (más de 500)">Grande (más de 500)</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="pt-3 pb-2 mb-3 border-botton">
+                <h1>IV. DESEMPEÑO PROFESIONAL DE LOS EGRESADOS</h1>
+                <P class="custum-text">Marcar los campos que correspondan a su trayectoria profesional.</P>
+            </div>
+            <div class="row">            
+              <div class="col-md-12 mb-12">
+                    <label>Eficiencia para realizar las actividades laborales, en relación con su formación académica</label>
+                    <select formControlName="Eficiencia" class="form-control1">
+                      <option value="Muy eficiente">Muy eficiente</option>
+                      <option value="Eficiente">Eficiente</option>
+                      <option value="Poco eficiente">Poco eficiente</option>
+                      <option value="Deficiente">Deficiente</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">            
+                <div class="col-md-12 mb-12">
+                      <label>Cómo califica su formación académica con respecto a su desempeño laboral</label>
+                      <select formControlName="formacionAcademica" class="form-control1">
+                        <option value="Muy eficiente">Muy eficiente</option>
+                        <option value="Eficiente">Eficiente</option>
+                        <option value="Poco eficiente">Poco eficiente</option>
+                        <option value="Deficiente">Deficiente</option>
+                      </select>
+                  </div>
+              </div>
+            
+              <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>Utilidad de las residencias profesionales o prácticas profesionales para su desarrollo laboral y profesional</label>
+                        <select formControlName="utilidadResidencias" class="form-control1">
+                          <option value="Muy eficiente">Muy eficiente</option>
+                          <option value="Eficiente">Eficiente</option>
+                          <option value="Poco eficiente">Poco eficiente</option>
+                          <option value="Deficiente">Deficiente</option>
+                        </select>
+                    </div>
+               </div>
+              <div class="pt-3 pb-2 mb-3 border-botton">
+                  <P class="custum-text">Aspectos que valora la empresa u organismo para la contratación de egresados 1 Poco - 5 Mucho</P>
+              </div>
+              <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>1. Área o Campo de Estudio</label>
+                        <select formControlName="areaEstudio" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>2. Titulación</label>
+                        <select formControlName="titulacion" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>3. Experiencia Laboral/práctica (antes de egresar)</label>
+                        <select formControlName="experienciaLaborar" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>4. Competencia Laboral: Habilidad para resolver problemas, capacidad de análisis, habilidad
+                            para el aprendizaje, creatividad, administración del tiempo, capacidad de negociación,
+                            habilidades manuales, trabajo en equipo, iniciativa, honestidad, persistencia, etc.</label>
+                        <select formControlName="competenciaLaboral" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>5. Posicionamiento de la Institución de Egreso</label>
+                        <select formControlName="posicionamientoInstitucion" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>6. Conocimiento de Idiomas Extranjeros</label>
+                        <select formControlName="conocimientoIdioma" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>7. Recomendaciones/referencias</label>
+                        <select formControlName="recomedacionesReferencias" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>8. Personalidad/Actitudes</label>
+                        <select formControlName="personalidad" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>9. Capacidad de liderazgo</label>
+                        <select formControlName="liderazgo" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+
+               <div class="row">            
+                  <div class="col-md-12 mb-12">
+                        <label>10. Otros</label>
+                        <select formControlName="otros" class="form-control1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+               </div>
+               <div class="pt-3 pb-2 mb-3 border-botton">
+                  <h1>V. EXPECTATIVAS DE DESARROLLO, SUPERACIÓN PROFESIONAL Y DE ACTUALIZACIÓN</h1>
+                  <P class="custum-text">Marcar los campos que correspondan a su trayectoria profesional.</P>
+              </div>
+              <div class="row">            
+                <div class="col-md-4 mb-4">
+                      <label>Le gustaría tomar cursos de actualización</label>
+                      <select formControlName="actualizacion" class="form-control1">
+                        <option value="Si">Si</option>
+                        <option value="No">No</option>
+                      </select>
+                </div>
+
+                <div class="col-md-8 mb-8">
+                    <label>¿Cuáles?</label>
+                    <input type="text" formControlName="cualActualizacion" class="form-control">
+                </div>
+              </div>
+
+              <div class="row">            
+                  <div class="col-md-4 mb-4">
+                        <label>Le gustaría tomar algún Posgrado</label>
+                        <select formControlName="estudiarPosgrado" class="form-control1">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                        </select>
+                  </div>
+  
+                  <div class="col-md-8 mb-8">
+                      <label>¿Cuál?</label>
+                      <input type="text" formControlName="cualPosgrado" class="form-control" >
+                  </div>
+                </div>
+
+                <div class="pt-3 pb-2 mb-3 border-botton">
+                    <h1>VI. PARTICIPACIÓN SOCIAL DE LOS EGRESADOS</h1>
+                    
+                </div>
+                <div class="row">            
+                  <div class="col-md-4 mb-4">
+                        <label>Pertenece a organizaciones sociales</label>
+                        <select formControlName="organizacionesSociales" class="form-control1">
+                          <option value="Si">Si</option>
+                          <option value="No">No</option>
+                        </select>
+                  </div>
+                  <div class="col-md-8 mb-8">
+                      <label>¿Cuáles?</label>
+                      <input type="text" formControlName="cualesOrganizacionesSociales" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row">            
+                    <div class="col-md-4 mb-4">
+                          <label>Pertenece a organismos de profesionistas</label>
+                          <select formControlName="organismosProfesionales" class="form-control1">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                          </select>
+                    </div>
+                    <div class="col-md-8 mb-8">
+                        <label>¿Cuáles?</label>
+                        <input type="text" formControlName="cualesOrganismosProfesionales" class="form-control">
+                    </div>
+                </div>
+                <div class="row">            
+                    <div class="col-md-4 mb-4">
+                          <label>Pertenece a la asociación de egresados</label>
+                          <select formControlName="asociacionEgresados" class="form-control1">
+                            <option value="Si">Si</option>
+                            <option value="No">No</option>
+                          </select>
+                    </div>
+                    
+                </div>
+-->
+                <div class="pt-3 pb-2 mb-3 border-botton">
+                    <h1>VIII. COMENTARIOS Y SUGERENCIAS</h1>
+                    <P class="custum-text">Opinión o recomendación para mejorar la formación profesional de un egresado de su carrera</P>
+                </div>
+                <div class="row">            
+                  <div class="col-md-12 mb-12">
+                      <input type="text" formControlName="opinion" class="form-control">
+                  </div>
+                </div>
+
   
         <div class="form-group text-right">
-          <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Reset</button>
-          <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Add Student</button>
+          <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Lipiar</button>
+          <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Actualizar</button>
         </div>
   
       </div>

@@ -5,7 +5,8 @@ import { ActivatedRoute, Router } from "@angular/router"; // ActivatedRoue is us
 import { Location } from '@angular/common';  // Location service is used to go back to previous component
 import { ToastrService } from 'ngx-toastr';
 
-//import { Student } from '../../shared/services/student'; 
+
+import { Student } from '../../shared/services/student'; 
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditPollComponent implements OnInit {
   studentForm: FormGroup;  
-  //Student: Student[]; 
+  //Student: Student['']; 
   itemKey: string;
   constructor(
     private crudApi: CrudService,       // Inject CRUD API in constructor
@@ -30,103 +31,156 @@ export class EditPollComponent implements OnInit {
   ngOnInit() {
     this.studenForm();   // Call updateStudentData() as soon as the component is ready 
     const id = this.actRoute.snapshot.paramMap.get('id');  // Getting current component's id or information using ActivatedRoute service
-    console.log('id del usuario en editPol', id);
-
+    
     //const id = this.actRoute.snapshot.paramMap.get('id'); 
-    //console.log('id desde dashboard ', id);
+    console.log('id desde dashboard ', id);
     let s = this.crudApi.ValidateUser(id);
-    //console.log('valor de s', s);
+    
     s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
-      //this.Student = [];
-      //console.log('valor de data ',data);
+      //this.Student = [''];
+      console.log('valor de data edit poll',data);
       data.forEach(item => {
         //console.log('id del Poll', item.key);
-        this.itemKey=item.key
+        //alert('id del Poll '+ item.key);
+        this.itemKey=item.key;
+        
       })
-      //console.log('valor de itemkey', this.itemKey);
+      //alert('valor de itemkey ' + this.itemKey);
       this.crudApi.GetStudent(this.itemKey).valueChanges().subscribe(data => {
         //console.log(this.studentForm.setValue(data.actividadActual));
         //console.log('valor de la data ', JSON.parse(data));
-        this.studentForm.setValue(data)
+        //alert('entro crud' + JSON.parse(data));
+        this.studentForm.setValue(data);
+        
       })
     })
 
   }
+  
   studenForm() {
     const id = this.actRoute.snapshot.paramMap.get('id'); 
-
+    //console.log('Valor del id ', id);
     this.studentForm = this.fb.group({
       user: id,
-      noControl: [],
-      nombre: [],
-      apellidoP: [],
-      apellidoM: [],
+      noControl: [''],
+      nombre: [''],
+      apellidoP: [''],
+      apellidoM: [''],
       fechaNacimiento: Date,
-      curp: [],
-      sexo: [],
-      estadoCivil:[],
-      calle: [],
-      numero: [],
-      colonia: [],
-      cp: [],
-      ciudad: [],
-      municipio: [],
-      estado: [],
-      pais: [],
-      carrera: [],
+      curp: [''],
+      sexo: [''],
+      estadoCivil:[''],
+      calle: [''],
+      numero: [''],
+      colonia: [''],
+      cp: [''],
+      ciudad: [''],
+      municipio: [''],
+      estado: [''],
+      pais: [''],
+      carrera: [''],
       
-      celular:[],
-      telefonoCasa: [],
-      email: [],
+      celular:[''],
+      telefonoCasa: [''],
+      email: [''],
 
-      especialidad: [],
-      titulado: [],
+      especialidad: [''],
+      titulado: [''],
       edad: Number,
-      mes_año_Egreso: [],
+      mes_año_Egreso: [''],
       
 
-      calidadDocentes: [],
-      planEstudios: [],
-      oportunidadesInvestigacion: [],
-      enfasisInvestigacion: [],
-      infraestructura: [],
-      residenciaProfesional: [],
+      calidadDocentes: [''],
+      planEstudios: [''],
+      oportunidadesInvestigacion: [''],
+      enfasisInvestigacion: [''],
+      infraestructura: [''],
+      residenciaProfesional: [''],
 
-      actividadActual: [],
-      estudia: [],
-      especialidad3: [],
-      institucion: [],
-      tiempoPrimerEmpleo: [],
-      medioObtenerEmpleo: [],
-      requisitosContratacion: [],
-      idiomaExtranjero: [],
-      hablar: [],
-      escribir: [],
-      leer:[],
-      escuchar:[],
-      antigüedadEmpleo: [],
-      añoIngreso: [],
-      ingresoSalarioMinimo: [],
-      nivelJerarquico: [],
-      condicionTrabajo: [],
-      relacionTrabajo: [],
-      giroEmpresa: [],
-      actividadEmpresa: [],
+      actividadActual: [''],
+      estudia: [''],
+      especialidad3: [''],
+      institucion: [''],
+      tiempoPrimerEmpleo: [''],
+      medioObtenerEmpleo: [''],
+      requisitosContratacion: [''],
+      idiomaExtranjero: [''],
+      hablar: [''],
+      escribir: [''],
+      leer:[''],
+      escuchar:[''],
+      antigüedadEmpleo: [''],
+      añoIngreso: [''],
+      ingresoSalarioMinimo: [''],
+      nivelJerarquico: [''],
+      condicionTrabajo: [''],
+      relacionTrabajo: [''],
+      giroEmpresa: [''],
+      actividadEmpresa: [''],
+      razonSocial:[''],
 
+      calleRazonSocial: [''],
+      numeroRazonSocial: [''],
+      coloniaRazonSocial: [''],
+      cpRazonSocial: [''],
+      ciudadRazonSocial: [''],
+      municipioRazonSocial: [''],
+      estadoRazonSocial: [''],
 
-    /* firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: [''],
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]*/
+      telRazonSocial: [''],
+      faxRazonSocial: [''],
+      emailRazonSocial: [''],
+      paginaRazonSocial: [''],
+      nombreJefeRazonSocial: [''],
+
+      sectorPrimario: [''],
+      sectorSecundario: [''],
+      sectorTerciario: [''],
+      tamañoEmpresa: [''],
+
+      Eficiencia: [''],
+      formacionAcademica: [''],
+      utilidadResidencias: [''],
+
+      areaEstudio: [''],
+      titulacion: [''],
+      experienciaLaborar: [''],
+      competenciaLaboral: [''],
+      posicionamientoInstitucion: [''],
+      conocimientoIdioma: [''],
+      recomedacionesReferencias: [''],
+      personalidad: [''],
+      liderazgo: [''],
+      otros: [''],
+
+      actualizacion: [''],
+      cualActualizacion: [''],
+      estudiarPosgrado: [''],
+      cualPosgrado: [''],
+
+      organizacionesSociales: [''],
+      cualesOrganizacionesSociales: [''],
+      organismosProfesionales: [''],
+      cualesOrganismosProfesionales: [''],
+      asociacionEgresados: [''],
+
+      opinion: ['']
     }) 
-    //console.log(this.studenForm);
+
   }
 
+
+  get opinion(){
+    return this.studentForm.get('opinion');
+  }
+  
+/*
   get estudia(){
     console.log('entro getestudia')
     return this.studentForm.get('estudia');
   }
-/*
+
+
 
   get nombre(){
     return this.studentForm.get('nombre');
@@ -215,7 +269,7 @@ export class EditPollComponent implements OnInit {
   submitStudentData() {
     // console.log(this.studentForm.value);
     this.crudApi.UpdateStudent(this.studentForm.value); // Submit student data using CRUD API
-    //this.toastr.success(this.studentForm.controls['firstName'].value + ' successfully added!'); // Show success message when data is successfully submited
+    this.toastr.success(this.studentForm.controls['nombre'].value + ' se a actualizado correctamente'); // Show success message when data is successfully submited
     //this.ResetForm();  // Reset form when clicked on reset button
     };
 

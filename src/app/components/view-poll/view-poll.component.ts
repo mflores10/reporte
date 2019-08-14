@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../../shared/services/crud.service';
 import { Student } from '../../shared/services/student'; 
+import { ExcelService } from '../../service/excel.service';
 
 @Component({
   selector: 'app-view-poll',
@@ -18,6 +19,7 @@ export class ViewPollComponent implements OnInit {
   
   constructor(
     public crudApi: CrudService
+    , private excelService: ExcelService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,11 @@ export class ViewPollComponent implements OnInit {
     })
   }
 
+  exportAsXLSX() {
+    console.log(this.Student, 'estudene en expot');
+    this.excelService.exportAsExcelFile(this.Student, 'sample');
+  }
+ 
     // Using valueChanges() method to fetch simple list of students data. It updates the state of hideWhenNoStudent, noData & preLoader variables when any changes occurs in student data list in real-time.
     dataState() {     
       this.crudApi.GetStudentsList().valueChanges().subscribe(data => {

@@ -66,61 +66,109 @@ export class AddPollComponent implements OnInit {
 
     this.studentForm = this.fb.group({
       user: id,
-      noControl: [],
-      nombre: [],
-      apellidoP: [],
-      apellidoM: [],
+      noControl: [''],
+      nombre: [''],
+      apellidoP: [''],
+      apellidoM: [''],
       fechaNacimiento: Date,
-      curp: [],
-      sexo: [],
-      estadoCivil:[],
-      calle: [],
-      numero: [],
-      colonia: [],
-      cp: [],
-      ciudad: [],
-      municipio: [],
-      estado: [],
-      pais: [],
-      carrera: [],
+      curp: [''],
+      sexo: [''],
+      estadoCivil:[''],
+      calle: [''],
+      numero: [''],
+      colonia: [''],
+      cp: [''],
+      ciudad: [''],
+      municipio: [''],
+      estado: [''],
+      pais: [''],
+      carrera: [''],
       
-      celular:[],
-      telefonoCasa: [],
-      email: [],
+      celular:[''],
+      telefonoCasa: [''],
+      email: [''],
 
-      especialidad: [],
-      titulado: [],
+      especialidad: [''],
+      titulado: [''],
       edad: Number,
-      mes_año_Egreso: [],
+      mes_año_Egreso: [''],
       
+      
+      calidadDocentes: [''],
+      planEstudios: [''],
+      oportunidadesInvestigacion: [''],
+      enfasisInvestigacion: [''],
+      infraestructura: [''],
+      residenciaProfesional: [''],
 
-      calidadDocentes: [],
-      planEstudios: [],
-      oportunidadesInvestigacion: [],
-      enfasisInvestigacion: [],
-      infraestructura: [],
-      residenciaProfesional: [],
+      actividadActual: [''],
+      estudia: [''],
+      especialidad3: [''],
+      institucion: [''],
+      tiempoPrimerEmpleo: [''],
+      medioObtenerEmpleo: [''],
+      requisitosContratacion: [''],
+      idiomaExtranjero: [''],
+      hablar: [''],
+      escribir: [''],
+      leer:[''],
+      escuchar:[''],
+      antigüedadEmpleo: [''],
+      añoIngreso: [''],
+      ingresoSalarioMinimo: [''],
+      nivelJerarquico: [''],
+      condicionTrabajo: [''],
+      relacionTrabajo: [''],
+      giroEmpresa: [''],
+      actividadEmpresa: [''],
+      razonSocial:[''],
 
-      actividadActual: [],
-      estudia: [],
-      especialidad3: [],
-      institucion: [],
-      tiempoPrimerEmpleo: [],
-      medioObtenerEmpleo: [],
-      requisitosContratacion: [],
-      idiomaExtranjero: [],
-      hablar: [],
-      escribir: [],
-      leer:[],
-      escuchar:[],
-      antigüedadEmpleo: [],
-      añoIngreso: [],
-      ingresoSalarioMinimo: [],
-      nivelJerarquico: [],
-      condicionTrabajo: [],
-      relacionTrabajo: [],
-      giroEmpresa: [],
-      actividadEmpresa: [],
+      calleRazonSocial: [''],
+      numeroRazonSocial: [''],
+      coloniaRazonSocial: [''],
+      cpRazonSocial: [''],
+      ciudadRazonSocial: [''],
+      municipioRazonSocial: [''],
+      estadoRazonSocial: [''],
+
+      telRazonSocial: [''],
+      faxRazonSocial: [''],
+      emailRazonSocial: [''],
+      paginaRazonSocial: [''],
+      nombreJefeRazonSocial: [''],
+
+      sectorPrimario: [''],
+      sectorSecundario: [''],
+      sectorTerciario: [''],
+      tamañoEmpresa: [''],
+
+      Eficiencia: [''],
+      formacionAcademica: [''],
+      utilidadResidencias: [''],
+
+      areaEstudio: [''],
+      titulacion: [''],
+      experienciaLaborar: [''],
+      competenciaLaboral: [''],
+      posicionamientoInstitucion: [''],
+      conocimientoIdioma: [''],
+      recomedacionesReferencias: [''],
+      personalidad: [''],
+      liderazgo: [''],
+      otros: [''],
+
+      actualizacion: [''],
+      cualActualizacion: [''],
+      estudiarPosgrado: [''],
+      cualPosgrado: [''],
+
+      organizacionesSociales: [''],
+      cualesOrganizacionesSociales: [''],
+      organismosProfesionales: [''],
+      cualesOrganismosProfesionales: [''],
+      asociacionEgresados: [''],
+      
+      opinion: ['']
 
 
     /* firstName: ['', [Validators.required, Validators.minLength(2)]],
@@ -128,9 +176,12 @@ export class AddPollComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]*/
     }) 
-    //console.log(this.studenForm);
   }
 
+/*
+  get opinion(){
+    return this.studentForm.get('opinion');
+  }
 
   get nombre(){
     return this.studentForm.get('nombre');
@@ -208,7 +259,7 @@ export class AddPollComponent implements OnInit {
   get institucion(){
     return this.studentForm.get('institucion');
   }
-
+*/
   // Reset student form's values
   ResetForm() {
     this.studentForm.reset();
@@ -217,7 +268,9 @@ export class AddPollComponent implements OnInit {
   submitStudentData() {
     // console.log(this.studentForm.value);
     this.crudApi.AddStudent(this.studentForm.value); // Submit student data using CRUD API
-    //this.toastr.success(this.studentForm.controls['firstName'].value + ' successfully added!'); // Show success message when data is successfully submited
+    alert ("La encuesta se agregado correctame \n");
+    //this.toastr.success(this.studentForm.controls['nombre'].value + ' successfully added!'); // Show success message when data is successfully submited
+    //this.toastr.success(' successfully added!');
     //this.ResetForm();  // Reset form when clicked on reset button
     };
 

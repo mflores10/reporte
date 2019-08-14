@@ -66,6 +66,54 @@ export interface Student {
     relacionTrabajo?: string,
     giroEmpresa?: string,
     actividadEmpresa?: string,
+    razonSocial?: string,
+
+    calleRazonSocial?: string,
+    numeroRazonSocial?: string,
+    coloniaRazonSocial?: string,
+    cpRazonSocial?: string,
+    ciudadRazonSocial?: string,
+    municipioRazonSocial?: string,
+    estadoRazonSocial?: string,
+
+    telRazonSocial?: string,
+    faxRazonSocial?: string,
+    emailRazonSocial?: string,
+    paginaRazonSocial?: string,
+    nombreJefeRazonSocial?: string,
+
+    sectorPrimario?: string,
+    sectorSecundario?: string,
+    sectorTerciario?: string,
+    tamañoEmpresa?: string,
+
+    Eficiencia?: string,
+    formacionAcademica?: string,
+    utilidadResidencias?: string,
+
+    areaEstudio?: string,
+    titulacion?: string,
+    experienciaLaborar?: string,
+    competenciaLaboral?: string,
+    posicionamientoInstitucion?: string,
+    conocimientoIdioma?: string,
+    recomedacionesReferencias?: string,
+    personalidad?: string,
+    liderazgo?: string,
+    otros?: string,
+
+    actualizacion?: string,
+    cualActualizacion?: string,
+    estudiarPosgrado?: string,
+    cualPosgrado?: string,
+
+    organizacionesSociales?: string,
+    cualesOrganizacionesSociales?: string,
+    organismosProfesionales?: string,
+    cualesOrganismosProfesionales?: string,
+    asociacionEgresados?: string,
+
+    opinion?: string
 }
 
 

@@ -9,6 +9,7 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angula
 //import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { strictEqual } from 'assert';
+import { Alert } from 'selenium-webdriver';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +61,6 @@ export class CrudService {
         especialidad: student.especialidad,
         titulado: student.titulado,
         mes_año_Egreso: student.mes_año_Egreso,
-        
 
         calidadDocentes: student.calidadDocentes,
         planEstudios: student.planEstudios,
@@ -89,14 +89,62 @@ export class CrudService {
         relacionTrabajo: student.relacionTrabajo,
         giroEmpresa: student.giroEmpresa,
         actividadEmpresa: student.actividadEmpresa,
+        razonSocial: student.razonSocial,
+        
+        calleRazonSocial: student.calleRazonSocial,
+        numeroRazonSocial: student.numeroRazonSocial,
+        coloniaRazonSocial: student.coloniaRazonSocial,
+        cpRazonSocial: student.cpRazonSocial,
+        ciudadRazonSocial: student.ciudadRazonSocial,
+        municipioRazonSocial: student.municipioRazonSocial,
+        estadoRazonSocial: student.estadoRazonSocial,
 
+        telRazonSocial: student.telRazonSocial,
+        faxRazonSocial: student.faxRazonSocial,
+        emailRazonSocial: student.email,
+        paginaRazonSocial: student.paginaRazonSocial,
+        nombreJefeRazonSocial: student.nombreJefeRazonSocial,
+
+        sectorPrimario: student.sectorPrimario,
+        sectorSecundario: student.sectorSecundario,
+        sectorTerciario: student.sectorTerciario,
+        tamañoEmpresa: student.tamañoEmpresa,
+
+        Eficiencia: student.Eficiencia,
+        formacionAcademica: student.formacionAcademica,
+        utilidadResidencias: student.utilidadResidencias,
+
+        areaEstudio: student.areaEstudio,
+        titulacion: student.titulacion,
+        experienciaLaborar: student.experienciaLaborar,
+        competenciaLaboral: student.competenciaLaboral,
+        posicionamientoInstitucion: student.posicionamientoInstitucion,
+        conocimientoIdioma: student.conocimientoIdioma,
+        recomedacionesReferencias: student.recomedacionesReferencias,
+        personalidad: student.personalidad,
+        liderazgo: student.liderazgo,
+        otros: student.otros,
+
+        actualizacion: student.actualizacion,
+        cualActualizacion: student.cualActualizacion,
+        estudiarPosgrado: student.estudiarPosgrado,
+        cualPosgrado: student.cualPosgrado,
+
+        organizacionesSociales: student.organizacionesSociales,
+        cualesOrganizacionesSociales: student.cualesOrganizacionesSociales,
+        organismosProfesionales: student.organismosProfesionales,
+        cualesOrganismosProfesionales: student.cualesOrganismosProfesionales,
+        asociacionEgresados: student.asociacionEgresados,
+
+        opinion: student.opinion
+        
       })
      }
 
      // Fetch Single Student Object
     GetStudent(id: string) {
+      // alert('valor de id ' + 'student-list/'+id);
       this.studentRef = this.db.object('student-list/' + id);
-      console.log('valor de id', 'student-list/'+id);
       //console.log(this.studentRef.valueChanges());
       return this.studentRef;
     }
@@ -145,7 +193,7 @@ export class CrudService {
       especialidad: student.especialidad,
       titulado: student.titulado,
       mes_año_Egreso: student.mes_año_Egreso,
-      
+    
 
       calidadDocentes: student.calidadDocentes,
       planEstudios: student.planEstudios,
@@ -174,6 +222,55 @@ export class CrudService {
       relacionTrabajo: student.relacionTrabajo,
       giroEmpresa: student.giroEmpresa,
       actividadEmpresa: student.actividadEmpresa,
+      razonSocial: student.razonSocial,
+
+      calleRazonSocial: student.calleRazonSocial,
+      numeroRazonSocial: student.numeroRazonSocial,
+      coloniaRazonSocial: student.coloniaRazonSocial,
+      cpRazonSocial: student.cpRazonSocial,
+      ciudadRazonSocial: student.ciudadRazonSocial,
+      municipioRazonSocial: student.municipioRazonSocial,
+      estadoRazonSocial: student.estadoRazonSocial,
+
+      telRazonSocial: student.telRazonSocial,
+      faxRazonSocial: student.faxRazonSocial,
+      emailRazonSocial: student.email,
+      paginaRazonSocial: student.paginaRazonSocial,
+      nombreJefeRazonSocial: student.nombreJefeRazonSocial,
+
+      sectorPrimario: student.sectorPrimario,
+      sectorSecundario: student.sectorSecundario,
+      sectorTerciario: student.sectorTerciario,
+      tamañoEmpresa: student.tamañoEmpresa,
+
+      Eficiencia: student.Eficiencia,
+      formacionAcademica: student.formacionAcademica,
+      utilidadResidencias: student.utilidadResidencias,
+
+      areaEstudio: student.areaEstudio,
+      titulacion: student.titulacion,
+      experienciaLaborar: student.experienciaLaborar,
+      competenciaLaboral: student.competenciaLaboral,
+      posicionamientoInstitucion: student.posicionamientoInstitucion,
+      conocimientoIdioma: student.conocimientoIdioma,
+      recomedacionesReferencias: student.recomedacionesReferencias,
+      personalidad: student.personalidad,
+      liderazgo: student.liderazgo,
+      otros: student.otros,
+
+      actualizacion: student.actualizacion,
+      cualActualizacion: student.cualActualizacion,
+      estudiarPosgrado: student.estudiarPosgrado,
+      cualPosgrado: student.cualPosgrado,
+
+      organizacionesSociales: student.organizacionesSociales,
+      cualesOrganizacionesSociales: student.cualesOrganizacionesSociales,
+      organismosProfesionales: student.organismosProfesionales,
+      cualesOrganismosProfesionales: student.cualesOrganismosProfesionales,
+      asociacionEgresados: student.asociacionEgresados,
+
+      opinion: student.opinion
+
     })
   }  
 

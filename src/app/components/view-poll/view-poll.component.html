@@ -1,4 +1,5 @@
 <p>view poll</p>
+<button (click)="exportAsXLSX()"><i class="" style="font-size:48px;color:blue">Exportar</i></button>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Students List</h1>
         <!-- It won't show if there is no student data -->
@@ -45,9 +46,10 @@
                 <td>{{student.firstName}} {{student.lastName}}</td>
                 <td>{{student.email}}</td>
                 <td>{{student.mobileNumber}}</td>
-                <td class="text-center action-block">
+                <!--<td class="text-center action-block">
                   <i class="far fa-edit" routerLink="/edit-student/{{student.$key}}"></i>
                   <i class="far fa-trash-alt" (click)="deleteStudent(student)"></i></td>
+                  -->
               </tr>
             </tbody>
           </table>
