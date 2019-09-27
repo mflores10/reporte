@@ -1,5 +1,12 @@
+
 <form [formGroup]="studentForm" (ngSubmit)="submitStudentData()" novalidate>
-    <div class="pt-3 pb-2 mb-3 border-botton">
+  <div class="row">
+    <br><br><br><br><br><br>
+  </div>
+  <div class="row">
+    </div>
+
+  <div class="pt-3 pb-2 mb-3 border-botton">
       <h1>I. PERFIL DEL EGRESADO</h1>
   </div>
     <div class="row">
@@ -784,13 +791,17 @@
                 <div class="row">            
                   <div class="col-md-4 mb-4">
   
-                <div class="form-group text-right">
-                    <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Limpiar</button>
-                    <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Guardar</button>
-                  </div>
+                
                   </div>
                   </div>
   
+                  <div class="pt-3 pb-2 mb-3 border-botton">
+                    <div class="form-group text-right">
+                      <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Limpiar</button>
+                      <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Guardar</button>
+                    </div>
+                </div>
+
       </div>
     </div>
   </form>

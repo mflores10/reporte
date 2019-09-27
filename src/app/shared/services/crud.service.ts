@@ -282,13 +282,13 @@ export class CrudService {
 
   //Validar
   ValidateUser(id: string){
-    this.studentsRef = this.db.list('student-list/', ref => ref.orderByChild('user').equalTo(id));
+    this.studentsRef = this.db.list('students-list/', ref => ref.orderByChild('user').equalTo(id));
     //this.studentRef=this.db.list('student-list', ref => ref.)
-    console.log('usuario encontrado ', id, ' ');
+    //console.log('usuario encontrado ', id, ' ');
     //console.log('entro xD');
     return this.studentsRef;
   }
-
+/*
   getPoll(id: string){
     this.studentsRef = this.db.list('student-list', ref => ref.orderByChild('user').equalTo(id));
     //this.studentRef=this.db.list('student-list', ref => ref.)
@@ -296,5 +296,5 @@ export class CrudService {
     //console.log('entro xD');
     return this.studentsRef;
   }
-
+*/
 }

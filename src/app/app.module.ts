@@ -20,8 +20,7 @@ import { AddPollComponent } from './components/add-poll/add-poll.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore'
-;
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 // Toaster for Alert Messages

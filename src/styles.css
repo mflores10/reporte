@@ -65,9 +65,16 @@ h6 {
   display: table;
   width: 100%;
   height: 100%;
-  background: #3F51B5;
+  
+  /* fondo
+  background: #3F51B5;*/
+  
 }
 
+
+.itsg{
+  text-align: center;
+}
 .displayTableCell {
   display: table-cell;
   vertical-align: middle;
@@ -225,12 +232,12 @@ input:-moz-placeholder {
   font-size: 14px;
   font-weight: 400;
   display: block;
-  color: rgba(255, 255, 255, .6);
+  /*color: rgba(255, 255, 255, .6);*/
 }
 
 .redirectToLogin .redirect {
   cursor: pointer;
-  color: #ffffff;
+  /*color: #ffffff;*/
   text-decoration: underline;
 }
 
@@ -288,7 +295,7 @@ input:-moz-placeholder {
 .sidebar a:hover,
 a:not([href]):not([tabindex]):focus,
 a:not([href]):not([tabindex]):hover {
-  color: #E91E63;
+  color:blue;
   background: #efefef;
 }
 
@@ -299,7 +306,7 @@ a:not([href]):not([tabindex]):hover {
 
 .dasboard-text {
   border-left: 1px solid rgb(255, 255, 255, .3);
-  color: rgb(255, 255, 255, .5);
+  color: #3a3a3a;
   display: inline-block;
   padding: 0 0 0 14px;
   font-size: 15px;
@@ -341,7 +348,7 @@ a:not([href]):not([tabindex]):hover {
 }
 
 .bg-dark {
-  background-color: #3F51B5 !important;
+  background-color: #fff !important;
 }
 
 .gap-right {
@@ -431,7 +438,7 @@ body .navbar-brand {
 }
 
 .brand-logo {
-  max-width: 85%;
+  max-width: 18%;
 }
 
 .pt-3,
@@ -629,6 +636,7 @@ body .table thead th {
     text-align: right;
     display: inherit;
     margin: 0;
+    color: red;
   }
 
   .navbar-dark .navbar-brand {

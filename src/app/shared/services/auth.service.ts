@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from "../services/user";
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
-//import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
 
@@ -18,7 +18,7 @@ export class AuthService {
 
 
   constructor(
-    private db: AngularFireDatabase,
+    //private db: AngularFireDatabase,
     //public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,  
@@ -121,19 +121,5 @@ export class AuthService {
       this.router.navigate(['sign-in']);
     })
   }
-
-  private updateUserData(user: User){
-    this.usersRef = this.db.list('users');
-    this.usersRef.push({
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified
-    })
-
-  }
-
-
 
 }
