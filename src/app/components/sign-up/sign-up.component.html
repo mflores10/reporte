@@ -11,15 +11,15 @@
       </a>
     </div>
 
-    <div class="authBlock">
+    <div class="authBlock border border-primary rounded">
       <h3>Registro</h3>
 
       <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email" #userEmail required>
+        <input type="email" class="form-control" placeholder="Email" #userEmail required>
       </div>
 
       <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Contraseña" #userPwd required>
+        <input type="password" class="form-control" placeholder="Contraseña" #userPwd required>
       </div>
 
       <div class="formGroup">
@@ -37,12 +37,12 @@
           Registrar con Google
         </button>
       </div>
-      
+
+      <div class="redirectToLogin">
+          <span><span class="redirect" routerLink="/sign-in">Iniciar Sesión</span></span>
+        </div>      
     </div>
 
-    <div class="redirectToLogin">
-      <span><span class="redirect" routerLink="/sign-in">Iniciar Sesión</span></span>
-    </div>
   </div>
 
 </div>

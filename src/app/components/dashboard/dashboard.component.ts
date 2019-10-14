@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() { 
 
     const id = this.actRoute.snapshot.paramMap.get('id'); 
-    //console.log('id desde dashboard ', id);
+    console.log('id desde dashboard ', id);
     let s = this.crudService.ValidateUser(id);
     //console.log('valor de s', s);
     s.snapshotChanges().subscribe(data => { 
@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
       //console.log('valor de data ',data);
       data.forEach(item => {
         //console.log('id del Poll', item.key);
+        console.log(this.hideWhenNoStudent);
         this.idKey=item.key;
         this.hideWhenNoStudent= true;
       })

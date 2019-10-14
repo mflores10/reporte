@@ -269,6 +269,10 @@ export class AddPollComponent implements OnInit {
     // console.log(this.studentForm.value);
     this.crudApi.AddStudent(this.studentForm.value); // Submit student data using CRUD API
     alert ("La encuesta se agregado correctame \n");
+    if (confirm('Desea terminar la encuesta?')){
+      this.router.navigate(['sign-in']);
+      this.authService.SignOut();
+    }
     //this.toastr.success(this.studentForm.controls['nombre'].value + ' successfully added!'); // Show success message when data is successfully submited
     //this.toastr.success(' successfully added!');
     //this.ResetForm();  // Reset form when clicked on reset button
