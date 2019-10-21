@@ -70,7 +70,7 @@ export class AddPollComponent implements OnInit {
       nombre: [''],
       apellidoP: [''],
       apellidoM: [''],
-      fechaNacimiento: Date,
+      fechaNacimiento: this.crudService.formatDate(new Date())  ,//new Date(Date.now()),
       curp: [''],
       sexo: [''],
       estadoCivil:[''],
@@ -90,7 +90,7 @@ export class AddPollComponent implements OnInit {
 
       especialidad: [''],
       titulado: [''],
-      edad: Number,
+      edad: 18,
       mes_año_Egreso: [''],
       
       
@@ -168,7 +168,8 @@ export class AddPollComponent implements OnInit {
       cualesOrganismosProfesionales: [''],
       asociacionEgresados: [''],
       
-      opinion: ['']
+      opinion: [''],
+      creado: this.crudService.formatDate(new Date()) //new Date(new Date().getMonth() )
 
 
     /* firstName: ['', [Validators.required, Validators.minLength(2)]],

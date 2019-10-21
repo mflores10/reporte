@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-12">
           <br><br><br><br>
+          <input type="hidden" formControlName="creado" class="form-control"  >
       </div>
     </div>
     <div class="row">
@@ -34,11 +35,11 @@
     <div class="row">
       <div class="col-12 col-md-1">
           <label>Edad</label>
-          <input type="number" formControlName="edad" class="form-control"  min="0" data-bind="value:replyNumber"  >
+          <input type="number" value="0" formControlName="edad" class="form-control"  min="0" data-bind="value:replyNumber"  >
       </div>
       <div class="col-12 col-md-3">
           <label>Fecha de Nacimiento</label>
-          <input type="date" formControlName="fechaNacimiento" class="form-control">
+          <input type="date" value="2013-01-08" formControlName="fechaNacimiento" class="form-control">
       </div>
       <div class="col-12 col-md-4">
           <label>CURP</label>

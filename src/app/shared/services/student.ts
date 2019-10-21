@@ -113,7 +113,9 @@ export interface Student {
     cualesOrganismosProfesionales?: string,
     asociacionEgresados?: string,
 
-    opinion?: string
+    opinion?: string,
+
+    creado?: Date
 }
 
 

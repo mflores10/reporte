@@ -165,7 +165,8 @@ export class EditPollComponent implements OnInit {
       cualesOrganismosProfesionales: [''],
       asociacionEgresados: [''],
 
-      opinion: ['']
+      opinion: [''],
+      creado:['']
     }) 
 
   }
@@ -271,7 +272,7 @@ export class EditPollComponent implements OnInit {
     // console.log(this.studentForm.value);
     this.crudApi.UpdateStudent(this.studentForm.value); // Submit student data using CRUD API
     this.toastr.success(this.studentForm.controls['nombre'].value + ' se a actualizado correctamente'); // Show success message when data is successfully submited
-    alert (this.studentForm.controls['nombre'].value + 'La encuesta se a actualizado correctamente');
+    alert (this.studentForm.controls['nombre'].value + ' La encuesta se a actualizado correctamente');
     if (confirm('Desea terminar la encuesta?')){
       this.router.navigate(['sign-in']);
       this.authService.SignOut();

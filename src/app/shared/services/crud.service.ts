@@ -136,8 +136,10 @@ export class CrudService {
         cualesOrganismosProfesionales: student.cualesOrganismosProfesionales,
         asociacionEgresados: student.asociacionEgresados,
 
-        opinion: student.opinion
-        
+        opinion: student.opinion,
+        //creado: new Date()
+        creado: student.creado 
+        //creado: formatDate(new Date())
       })
      }
 
@@ -269,7 +271,9 @@ export class CrudService {
       cualesOrganismosProfesionales: student.cualesOrganismosProfesionales,
       asociacionEgresados: student.asociacionEgresados,
 
-      opinion: student.opinion
+      opinion: student.opinion,
+      creado: new Date(Date.now())
+      //creado: student.creado //new Date(Date.now())
 
     })
   }  
@@ -297,4 +301,10 @@ export class CrudService {
     return this.studentsRef;
   }
 */
+  formatDate(date: Date): string{
+    const day = date.getDate();
+    const month = date.getMonth() +1;
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
 }
