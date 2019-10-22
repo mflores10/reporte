@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "forms-3ed4b"
+    "default": "SegiminetoEgresados",
+    "seguimiento": "segiminetoegresados"
   }
 }
