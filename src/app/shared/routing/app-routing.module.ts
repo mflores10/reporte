@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent},
   { path: 'register-user', component: SignUpComponent},
   { path: 'dashboard/:id', component: DashboardComponent,canActivate: [AuthGuard]  },
-  { path: 'add-poll', component: AddPollComponent,canActivate: [AuthGuard]  },
-  { path: 'edit-poll/:id', component: EditPollComponent,canActivate: [AuthGuard]  },
+  //{ path: 'add-poll', component: AddPollComponent,canActivate: [AuthGuard]  },
+  //{ path: 'edit-poll/:id', component: EditPollComponent,canActivate: [AuthGuard]  },
   { path: 'view-poll', component: ViewPollComponent,canActivate: [AuthGuard]  },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent }

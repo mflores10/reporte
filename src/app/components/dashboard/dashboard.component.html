@@ -1,9 +1,9 @@
 <div *ngIf="authService.userData as user">
       <!-- SECCION NAVEGACIÓN-->
       <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">    
-            <a href="#" class="navbar-brand">
+            <div class="navbar-brand">
               <strong>ITSG</strong> Seguimiento a egresados
-            </a>
+            </div>
             <button type="button" class="navbar-toggler" data-toggle="collapse"
             data-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false"
             aria-label="Desplegar menú de navegación">
@@ -24,12 +24,12 @@
     
     <div class="row"  >
       <div class="col-12" *ngIf="hideWhenNoStudent">
-        <app-edit-poll></app-edit-poll>
+        <app-view-poll></app-view-poll>
       </div>
     <div class="container">  
       <div class="row">
         <div class="col-12" *ngIf="!hideWhenNoStudent">
-          <app-add-poll></app-add-poll>
+          <app-view-poll></app-view-poll>
         </div>
       </div>
     </div>
