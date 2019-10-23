@@ -25,23 +25,9 @@
         <input type="button" class="btn btnPrimary" value="Acceder" (click)="authService.SignIn(userName.value, userPassword.value)">
       </div>
 
-      <div class="formGroup">
-        <span class="or"><span class="orInner">o</span></span>
-      </div>
-
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Ingresar con Google
-        </button>
-      </div>
-
       <div class="forgotPassword">
         <span routerLink="/forgot-password">Recuperar Contraseña</span>
       </div>
-      <div class="redirectToLogin">
-          <span>Es la primera vez?<span class="redirect" routerLink="/register-user"> Registrate</span></span>
-        </div>
     </div>
 
  
